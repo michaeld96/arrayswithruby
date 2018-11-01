@@ -1,0 +1,74 @@
+#Name: Michael Dick
+#CIS 123
+#Display money in two different ways:
+#1) Normally thru Jan - Dec.
+#2) By savings highest to lowest.
+#3) See how long it will take to break even.
+#------------------------------------------------
+#Steps to get data from the user:
+#1) Prompt user for water bill of the following month before installation. 12 months.
+#2) Get data after the the installation was in. 12 months.
+#3) How much it cost for the upgrade.
+#---------------------------------------------------------
+#Operations:
+#1) Get all data for 12 months. Use a loop to get all data.
+#2) Get all data after the months.
+#3) Display the data before the installation.
+#4) Display the data after the installation. (From greatest to lowest)
+#5) Show how long it will take to break even.
+#
+#-----------------------------------------------------------------
+#Hints:
+#expense = gets.to_f
+#years = expense / savings_total
+#adding in an array=> savings.sum
+#for i in 0..11
+#  savings.push[i]( before[i] - after[i])
+#total_savings = after.sum - before.sum
+before = Array.new
+after = Array.new
+savings = Array.new
+sorted_savings = Array
+
+
+puts "Welcome to the Savings Calculator:"
+
+puts "Please enter in how much the installation cost: "
+cost = gets.to_f
+puts "Please enter in the bills for the following months Jan-Dec BEFORE the installation."
+
+for i in 0..11
+  before.push(gets.to_f)
+end
+
+puts "Please enter in the bills for the following months Jan-Dec AFTER the installation."
+
+for i in 0..11
+  after.push(gets.to_f)
+end
+
+puts "This is what you where paying before the installation:"
+
+for i in 0..11
+  puts "$#{'%.2f' % before[i]}"
+end
+
+puts "This is what you'll be saving with the installation:"
+
+for i in 0..11
+  savings[i] = (before[i] - after[i])
+  puts "$#{'%.2f' % savings}"
+end
+
+puts "This is your savings from least to greatest: "
+
+sorted_savings = savings.sort
+puts "$#{'%.2f' % sorted_savings}"
+
+years = cost / savings.sum
+
+puts "It'll take you #{years} years to break even."
+
+
+
+
